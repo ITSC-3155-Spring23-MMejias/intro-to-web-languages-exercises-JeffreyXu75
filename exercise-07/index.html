@@ -1,0 +1,29 @@
+
+
+<input type="text" id="txt-price" placeholder="Enter the price of the item"> <!-- create first text box to obtain price-->
+<input type="text" id="txt-quantity" placeholder="Enter the quanity of the item"> <!-- create second text box to obtain quantity-->
+<button id="btn-submit">Calculate</button> <!-- create button to initate calculation-->
+<div id="output"></div> <!-- create area for output-->
+
+<!--Script runs in background from below script element-->
+<script> 
+  var priceInput = document.getElementById('txt-price'); // get the first text box from id
+  var quantityInput = document.getElementById('txt-quantity'); //get the second text box from id
+  var submitBtn = document.getElementById('btn-submit'); //store the button as an element via id
+  var output = document.getElementById('output'); // create variable to write to output from
+
+  submitBtn.addEventListener('click', function () { //listens for click via button var, once click happens:
+    var price = priceInput.value; //update price from price field
+    var quanity = quantityInput.value; //update quanitity from quantity text box
+    price = +price; // Cast price to number
+    quanity = +quanity; // Cast quantity as number
+    if (Number.isNaN(price) || Number.isNaN(quanity)) { //If via number class price / quantity are invalid
+      output.innerHTML = 'Invalid input'; //return invalid input
+      return;
+    }
+    var totalPrice = price * quanity; //calculate total price
+    totalPrice = Math.round(totalPrice * 100) / 100; // accomodate for floating point errors
+    output.innerHTML = quanity + ' items at $' + price + ' each is $' + totalPrice; // finally, set output html to the final calculated result
+  });
+</script>
+
