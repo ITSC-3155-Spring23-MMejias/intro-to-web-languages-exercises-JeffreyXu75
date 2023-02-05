@@ -1,0 +1,10 @@
+body{
+    background-color: aquamarine;
+    font-family: 'Comic Sans MS', sans-serif; /* sans serif as backup incase comic sans somehow doesn't load*/
+}
+#main-title{
+    text-align: center;
+}
+#content{
+    margin-bottom: 12px;
+}
